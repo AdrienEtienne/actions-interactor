@@ -10,11 +10,14 @@
 
 ### Features
 
-### Sponsors
+- Create interactor object which will register actions.
+- Actions are used for display or interaction.
+- An interactor can be validate, or not.
 
 ### Documentation
 
 * [Getting Started](docs/getting-started.md)
+* [How to use](docs/how-to-use.md)
 * [Recipes](docs/recipes)
   * [Testing with <code>mocha</code> and <code>jsdom</code>](docs/recipes/testing-with-mocha-and-jsdom.md)
   * [Throwing errors with FB's <code>invariant</code> library](docs/recipes/throwing-errors-with-fbjs-invariant.md)
