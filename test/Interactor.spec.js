@@ -12,6 +12,10 @@ describe('Interactor', () => {
     interactor = actionsInteractor.create(interactorObj);
   });
 
+  it('should create an Interactor', () => {
+    interactor = actionsInteractor.create({});
+  });
+
   describe('addInfo(name, description)', () => {
     beforeEach(() => interactor.addInfo('name', 'description'));
 
@@ -35,6 +39,18 @@ describe('Interactor', () => {
         .to
         .equal(true);
     });
+
+    it('should not be valid when no name', () => {
+      delete interactor.actions[0].name;
+      expect(interactor.actions[0].isValid())
+        .to
+        .equal(false);
+        interactor.addInfo();
+        expect(interactor.actions[1].isValid())
+        .to
+        .equal(false);
+    });
+
   });
 
   describe('addInput(name, description, isRequired, defaultValue)', () => {
@@ -147,6 +163,7 @@ describe('Interactor', () => {
       beforeEach(() => interactor.actions[0].setValue(interactor.actions[0].choices[0]));
 
       it('should be valid', () => expect(interactor.actions[0].isValid()).to.equal(true));
+      it('should return false', () => expect(interactor.actions[0].setValue()).to.equal(false));
     });
   });
 });

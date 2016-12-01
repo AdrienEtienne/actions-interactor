@@ -2,9 +2,9 @@ import { Action, ActionInput, ActionCombo } from './action';
 
 class Interactor {
 
-  constructor(name, description) {
-    this.name = name || '';
-    this.description = description || '';
+  constructor(name = '', description = '') {
+    this.name = name;
+    this.description = description;
 
     this.actions = [];
   }

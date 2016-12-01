@@ -1,5 +1,5 @@
 import Interactor from './Interactor';
-import {Action, ActionCombo, ActionInput, Types} from './action';
+import { Action, ActionCombo, ActionInput, Types } from './action';
 
 const populateActions = (interactorActions, actions) => {
   actions.forEach((action) => {
@@ -11,14 +11,21 @@ const populateActions = (interactorActions, actions) => {
         }
       case Types.ACTION_COMBO:
         {
-          const tmp = new ActionCombo(action.name, action.description, action.required, action.choices);
+          const tmp = new ActionCombo(
+            action.name,
+            action.description,
+            action.required,
+            action.choices);
           tmp.setValue(action.value);
           interactorActions.push(tmp);
           return true;
         }
       case Types.ACTION_INPUT:
         {
-          const tmp = new ActionInput(action.name, action.description, action.required, action.defaultValue);
+          const tmp = new ActionInput(action.name,
+            action.description,
+            action.required,
+            action.defaultValue);
           tmp.setValue(action.value);
           interactorActions.push(tmp);
           return true;
@@ -30,7 +37,7 @@ const populateActions = (interactorActions, actions) => {
 };
 
 export default function create(obj = {}) {
-  const interactor = new Interactor(obj.name || '', obj.description || '');
+  const interactor = new Interactor(obj.name, obj.description);
 
   if (Array.isArray(obj.actions)) {
     populateActions(interactor.actions, obj.actions);

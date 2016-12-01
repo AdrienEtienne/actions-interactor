@@ -2,7 +2,7 @@ import Action from './Action';
 import {ACTION_COMBO} from './ACTION_TYPE';
 
 export default class ActionCombo extends Action {
-  constructor(name, description, required = false, choices) {
+  constructor(name, description, required, choices) {
     super(name, description);
     this.required = required;
     this.choices = choices;
