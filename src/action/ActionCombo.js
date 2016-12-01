@@ -1,12 +1,12 @@
 import Action from './Action';
-import {ACTION_COMBO} from './ACTION_TYPE';
+import { ACTION_COMBO } from './ACTION_TYPE';
 
 export default class ActionCombo extends Action {
   constructor(name, description, required, choices) {
     super(name, description);
     this.required = required;
     this.choices = choices;
-    this.type=ACTION_COMBO;
+    this.type = ACTION_COMBO;
     this.value = null;
 
     this
@@ -27,12 +27,13 @@ export default class ActionCombo extends Action {
 
   setValue(choice = {}) {
     let result = false;
-    this.choices.forEach(item=>{
+    this.choices.forEach((item) => {
       if (item.value === choice.value) {
         this.value = choice;
         result = true;
         return false;
       }
+      return true;
     });
     return result;
   }

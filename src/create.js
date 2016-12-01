@@ -1,15 +1,18 @@
 import Interactor from './Interactor';
-import { Action, ActionCombo, ActionInput, Types } from './action';
+import Action from './action/Action' ;
+import ActionCombo from './action/ActionCombo' ;
+import ActionInput from './action/ActionInput' ;
+import { ACTION_BASE, ACTION_COMBO, ACTION_INPUT } from './action/ACTION_TYPE';
 
 const populateActions = (interactorActions, actions) => {
   actions.forEach((action) => {
     switch (action.type) {
-      case Types.ACTION_BASE:
+      case ACTION_BASE:
         {
           interactorActions.push(new Action(action.name, action.description));
           return true;
         }
-      case Types.ACTION_COMBO:
+      case ACTION_COMBO:
         {
           const tmp = new ActionCombo(
             action.name,
@@ -20,7 +23,7 @@ const populateActions = (interactorActions, actions) => {
           interactorActions.push(tmp);
           return true;
         }
-      case Types.ACTION_INPUT:
+      case ACTION_INPUT:
         {
           const tmp = new ActionInput(action.name,
             action.description,

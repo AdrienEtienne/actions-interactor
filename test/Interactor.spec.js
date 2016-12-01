@@ -45,8 +45,8 @@ describe('Interactor', () => {
       expect(interactor.actions[0].isValid())
         .to
         .equal(false);
-        interactor.addInfo();
-        expect(interactor.actions[1].isValid())
+      interactor.addInfo();
+      expect(interactor.actions[1].isValid())
         .to
         .equal(false);
     });

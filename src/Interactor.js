@@ -1,4 +1,6 @@
-import { Action, ActionInput, ActionCombo } from './action';
+import Action from './action/Action';
+import ActionInput from './action/ActionInput';
+import ActionCombo from './action/ActionCombo';
 
 class Interactor {
 

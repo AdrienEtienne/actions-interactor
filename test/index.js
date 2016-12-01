@@ -7,9 +7,9 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import {expect} from 'chai';
+import { expect } from 'chai';
 import actionsInteractor from '../src';
-import {Action, ActionInput, ActionCombo, Types} from '../src/action';
+import { Action, ActionInput, ActionCombo, Types } from '../src/action';
 
 describe('actionsInteractor', () => {
 
@@ -21,7 +21,7 @@ describe('actionsInteractor', () => {
       interactorObj = {
         name: 'my interactor',
         description: 'define personal description',
-        actions: []
+        actions: [],
       };
       interactor = actionsInteractor.create(interactorObj);
     });
@@ -65,7 +65,7 @@ describe('actionsInteractor', () => {
       expect(interactor)
         .to
         .deep
-        .contain({name: '', description: ''});
+        .contain({ name: '', description: '' });
     });
 
     it('should not add action', () => {
@@ -84,13 +84,13 @@ describe('actionsInteractor', () => {
       beforeEach(() => {
         interactorObj
           .actions
-          .push({name: 'name', description: 'description', type: Types.ACTION_BASE});
+          .push({ name: 'name', description: 'description', type: Types.ACTION_BASE });
         interactor = actionsInteractor.create(interactorObj);
       });
 
       it('should have one action', () => expect(interactor.actions).to.have.length(1));
       it('should be an Action', () => expect(interactor.actions[0]).to.be.instanceof(Action));
-      it('should be well instanciate', () => expect(interactor.actions[0]).to.deep.contain({name: 'name', description: 'description'}));
+      it('should be well instanciate', () => expect(interactor.actions[0]).to.deep.contain({ name: 'name', description: 'description' }));
     });
 
     describe('with ActionInput', () => {
@@ -104,7 +104,7 @@ describe('actionsInteractor', () => {
             required: true,
             defaultValue: 'value',
             value: 'new Value',
-            type: Types.ACTION_INPUT
+            type: Types.ACTION_INPUT,
           });
         interactor = actionsInteractor.create(interactorObj);
       });
@@ -115,7 +115,7 @@ describe('actionsInteractor', () => {
         expect(interactor.actions[0])
           .to
           .deep
-          .contain({name: 'name', description: 'description', required: true, defaultValue: 'value', value: 'new Value'});
+          .contain({ name: 'name', description: 'description', required: true, defaultValue: 'value', value: 'new Value' });
       });
       it('should be valid', () => {
         expect(interactor.isValid())
@@ -137,17 +137,17 @@ describe('actionsInteractor', () => {
               {
                 name: 'name',
                 value: 0,
-                default: true
+                default: true,
               }, {
                 name: 'name 2',
-                value: 1
-              }
+                value: 1,
+              },
             ],
             value: {
               name: 'name 2',
-              value: 1
+              value: 1,
             },
-            type: Types.ACTION_COMBO
+            type: Types.ACTION_COMBO,
           });
         interactor = actionsInteractor.create(interactorObj);
       });
@@ -164,8 +164,8 @@ describe('actionsInteractor', () => {
             required: true,
             value: {
               name: 'name 2',
-              value: 1
-            }
+              value: 1,
+            },
           });
       });
       it('should be valid', () => {
