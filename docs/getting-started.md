@@ -17,20 +17,6 @@ $ cd <your-project-name>
 $ npm install
 ```
 
-Update your name in `LICENSE.txt` and project information in `package.json` and `README.md` files.
-Write your code in `src` folder, write tests in `test` folder. Run `npm run build` to compile the
-source code into a distributable format. Write documentation in markdown format in `docs` folder.
-Run `npm start` to launch a development server with the documentation site.
-
-Alternatively, start a new project with **Yeoman**:
-
-```sh
-$ npm install -g generator-javascript
-$ mkdir <your-project-name>
-$ cd <your-project-name>
-$ yo javascript
-```
-
 ### How to Build
 
 Running `npm run build` will compile source files to a distributable format (CommonJS, ES6 and UMD)
