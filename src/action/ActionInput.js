@@ -16,7 +16,7 @@ export default class ActionInput extends Action {
   }
 
   isValid() {
-    if (this.required && this.value === '') return false;
+    if (this.required && !this.value) return false;
     return true;
   }
 }

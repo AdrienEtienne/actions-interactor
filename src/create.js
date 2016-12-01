@@ -1,4 +1,4 @@
-import Interactor from './Interactor';
+import Interactor from './Interactor/Interactor';
 import Action from './action/Action' ;
 import ActionCombo from './action/ActionCombo' ;
 import ActionInput from './action/ActionInput' ;
