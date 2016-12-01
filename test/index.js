@@ -8,8 +8,8 @@
  */
 
 import { expect } from 'chai';
-import actionsInteractor from '../src';
-import { Action, ActionInput, ActionCombo, Types } from '../src/action';
+import actionsInteractor, { Types } from '../src';
+import { Action, ActionInput, ActionCombo } from '../src/action';
 
 describe('actionsInteractor', () => {
 
