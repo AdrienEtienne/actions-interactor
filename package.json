@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "actions-interactor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Managing interactions with validation of the actions",
   "repository": "AdrienEtienne/actions-interactor",
   "author": "AdrienEtienne <a.etienne92@gmail.com>",
