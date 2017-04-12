@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+### [Unreleased][unreleased]
+
+#### Fix
+
+- Debug when create interactor with combo value empty.
+
 ### [v0.0.1] - 2016-12-01
 
 - Create unique addAction function to add action.
