@@ -2,12 +2,12 @@ import Action from './Action';
 import { ACTION_INPUT } from './ACTION_TYPE';
 
 export default class ActionInput extends Action {
-  constructor(name, description, required = false, defaultValue = '') {
+  constructor(name, description, required = false, value = '') {
     super(name, description);
     this.type = ACTION_INPUT;
     this.required = required;
-    this.defaultValue = defaultValue;
-    this.value = defaultValue;
+    this.defaultValue = value;
+    this.value = value;
   }
 
   setValue(value) {

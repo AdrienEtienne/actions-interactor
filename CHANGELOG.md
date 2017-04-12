@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ### [Unreleased][unreleased]
 
+#### Improvement
+
+- Remove property "defaultValue" in ActionInput.
+
 #### Fix
 
 - Debug when create interactor with combo value empty.

@@ -38,7 +38,7 @@ class Interactor {
       case ACTION_INPUT:
         this
           .actions
-          .push(new ActionInput(obj.name, obj.description, obj.required, obj.defaultValue));
+          .push(new ActionInput(obj.name, obj.description, obj.required, obj.value));
         return;
 
       case ACTION_COMBO:

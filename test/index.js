@@ -97,7 +97,6 @@ describe('actionsInteractor', () => {
           name: 'name',
           description: 'description',
           required: true,
-          defaultValue: 'value',
           value: 'new Value',
           type: Types.ACTION_INPUT,
         });
