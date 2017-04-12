@@ -78,9 +78,9 @@ describe('Interactor', () => {
           .contain(interactorObj);
       });
 
-      it('should add action input with required and defaultValue', () => {
+      it('should add action input with required and value', () => {
         interactorObj.required = true;
-        interactorObj.defaultValue = 'default';
+        interactorObj.value = 'default';
         interactor.addAction(interactorObj);
         expect(interactorObj)
           .to
@@ -91,9 +91,9 @@ describe('Interactor', () => {
       describe('isValid()', () => {
         beforeEach(() => {
           interactorObj.required = true;
-          interactorObj.defaultValue = 'default';
+          interactorObj.value = 'default';
           interactor.addAction(interactorObj);
-          interactorObj.defaultValue = null;
+          interactorObj.value = null;
           interactor.addAction(interactorObj);
         });
 

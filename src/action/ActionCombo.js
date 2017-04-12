@@ -1,7 +1,24 @@
 import Action from './Action';
 import { ACTION_COMBO } from './ACTION_TYPE';
 
-export default class ActionCombo extends Action {
+/**
+ * Action Combo
+ *
+ * @extends {Action}
+ * @property {boolean} [required=false] Required
+ * @property {string} [value=''] Value
+ * @property {Array} choices Choices
+ */
+class ActionCombo extends Action {
+  /**
+   * Creates an instance of ActionCombo.
+   * @param {string} name Name
+   * @param {string} description Description
+   * @param {string} required Required
+   * @param {string} choices Choices
+   *
+   * @memberOf ActionCombo
+   */
   constructor(name, description, required, choices) {
     super(name, description);
     this.required = required;
@@ -18,6 +35,13 @@ export default class ActionCombo extends Action {
       });
   }
 
+/**
+ * Test if valid
+ *
+ * @returns {boolean}
+ *
+ * @memberOf ActionCombo
+ */
   isValid() {
     if (this.required && !this.value) {
       return false;
@@ -25,6 +49,14 @@ export default class ActionCombo extends Action {
     return true;
   }
 
+  /**
+   * Set choice
+   *
+   * @param {object} choice
+   * @returns {boolean}
+   *
+   * @memberOf ActionCombo
+   */
   setValue(choice = {}) {
     let result = false;
     this.choices.forEach((item) => {
@@ -38,3 +70,5 @@ export default class ActionCombo extends Action {
     return result;
   }
 }
+
+export default ActionCombo;

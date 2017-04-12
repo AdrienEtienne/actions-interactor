@@ -4,5 +4,6 @@
 coverage
 dist
 docs/dist
+doc
 node_modules
 npm-debug.log

@@ -8,8 +8,8 @@
  */
 
 import { expect } from 'chai';
-import actionsInteractor from '../src';
-import { Action, ActionInput, ActionCombo, Types } from '../src/action';
+import actionsInteractor, { Types } from '../src';
+import { Action, ActionInput, ActionCombo } from '../src/action';
 
 describe('actionsInteractor', () => {
 
@@ -68,15 +68,12 @@ describe('actionsInteractor', () => {
         .contain({ name: '', description: '' });
     });
 
-    it('should not add action', () => {
+    it('should throw if bad action', () => {
       interactorObj
         .actions
         .push({});
-      interactor = actionsInteractor.create(interactorObj);
-      expect(interactor.actions)
-        .to
-        .have
-        .length(0);
+      expect(() => actionsInteractor.create(interactorObj))
+        .to.throw('Unknown type of action : undefined');
     });
 
     describe('with Action', () => {
@@ -96,83 +93,38 @@ describe('actionsInteractor', () => {
     describe('with ActionInput', () => {
 
       beforeEach(() => {
-        interactorObj
-          .actions
-          .push({
-            name: 'name',
-            description: 'description',
-            required: true,
-            defaultValue: 'value',
-            value: 'new Value',
-            type: Types.ACTION_INPUT,
-          });
+        interactorObj.actions.push({
+          name: 'name',
+          description: 'description',
+          required: true,
+          value: 'new Value',
+          type: Types.ACTION_INPUT,
+        });
         interactor = actionsInteractor.create(interactorObj);
       });
 
       it('should have one action', () => expect(interactor.actions).to.have.length(1));
       it('should be an ActionInput', () => expect(interactor.actions[0]).to.be.instanceof(ActionInput));
-      it('should be well instanciate', () => {
-        expect(interactor.actions[0])
-          .to
-          .deep
-          .contain({ name: 'name', description: 'description', required: true, defaultValue: 'value', value: 'new Value' });
-      });
-      it('should be valid', () => {
-        expect(interactor.isValid())
-          .to
-          .equal(true);
-      });
     });
 
     describe('with ActionInput', () => {
 
       beforeEach(() => {
-        interactorObj
-          .actions
-          .push({
-            name: 'name',
-            description: 'description',
-            required: true,
-            choices: [
-              {
-                name: 'name',
-                value: 0,
-                default: true,
-              }, {
-                name: 'name 2',
-                value: 1,
-              },
-            ],
-            value: {
-              name: 'name 2',
-              value: 1,
-            },
-            type: Types.ACTION_COMBO,
-          });
+        interactorObj.actions.push({
+          name: 'name',
+          description: 'description',
+          required: true,
+          choices: [
+            { name: 'name', value: 0 },
+            { name: 'name 2', value: 1 },
+          ],
+          type: Types.ACTION_COMBO,
+        });
         interactor = actionsInteractor.create(interactorObj);
       });
 
       it('should have one action', () => expect(interactor.actions).to.have.length(1));
       it('should be an ActionCombo', () => expect(interactor.actions[0]).to.be.instanceof(ActionCombo));
-      it('should be well instanciate', () => {
-        expect(interactor.actions[0])
-          .to
-          .deep
-          .contain({
-            name: 'name',
-            description: 'description',
-            required: true,
-            value: {
-              name: 'name 2',
-              value: 1,
-            },
-          });
-      });
-      it('should be valid', () => {
-        expect(interactor.isValid())
-          .to
-          .equal(true);
-      });
     });
   });
 
