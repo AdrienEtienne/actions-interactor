@@ -1,5 +1,5 @@
 import create from './create';
-import * as TYPES from './action/ACTION_TYPE';
+import TYPES from './action/ACTION_TYPE';
 
 export const Types = TYPES;
 

@@ -1,5 +1,12 @@
 import Interactor from './Interactor/Interactor';
 
+/**
+ * Create an interactor from object
+ *
+ * @export
+ * @param {object} obj Object
+ * @returns {Interactor}
+ */
 export default function create(obj = {}) {
   const interactor = new Interactor(obj.name, obj.description);
 

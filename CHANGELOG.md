@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 #### Improvement
 
 - Remove property "defaultValue" in ActionInput.
+- Add Documentation.
 
 #### Fix
 

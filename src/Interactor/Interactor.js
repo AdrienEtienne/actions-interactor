@@ -3,6 +3,14 @@ import ActionInput from '../action/ActionInput';
 import ActionCombo from '../action/ActionCombo';
 import { ACTION_BASE, ACTION_COMBO, ACTION_INPUT } from '../action/ACTION_TYPE';
 
+/**
+ * Manage actions to interact with
+ *
+ * @class Interactor
+ * @property {string} name Name
+ * @property {string} description Description
+ * @property {Array.<Action>} actions Actions
+ */
 class Interactor {
   constructor(name = '', description = '') {
     this.name = name;
@@ -11,6 +19,13 @@ class Interactor {
     this.actions = [];
   }
 
+  /**
+   * Test if actions are well filled
+   *
+   * @returns {boolean}
+   *
+   * @memberOf Interactor
+   */
   isValid() {
     let result = true;
 
@@ -28,6 +43,13 @@ class Interactor {
     return result;
   }
 
+  /**
+   * Add an action to interactor
+   *
+   * @param {object} obj
+   *
+   * @memberOf Interactor
+   */
   addAction(obj = {}) {
     switch (obj.type) {
       case ACTION_BASE:
